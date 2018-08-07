@@ -1,27 +1,3 @@
-load_data <- function(dataPath = "", Name = NA,Number = NA)
-{
-  library("readxl")
-  if (dataPath == "") {
-    stop("Must provide the dataPath")
-  }
-  sheets <- excel_sheets(dataPath)
-  if (!is.na(Name)) {
-    if (Name %in% sheets) {
-      return(read_xlsx(dataPath,Name,skip = 1))
-    }else{
-      error=stop("provided sheet name did not exist")
-    }
-  }else if (!is.na(Number)) {
-    if (Number > 0 && Number <= length(sheets)) {
-      return(read_xlsx(dataPath,Number,skip = 1))
-    }else{
-      error=stop("The sheet number is outside the range of sheets")
-    }
-  }else {
-    stop("Need to specify the sheet Name or Number")
-  }
-}
-
 loadAllDataLong <- function(dataPath = "")
 {
   library("readxl")
@@ -61,4 +37,3 @@ loadAllDataLong <- function(dataPath = "")
   outDF$Day <- format(outDF$date, "%d")
   return(outDF)
 }
-#test comments
