@@ -30,13 +30,13 @@ print("maximum count of bicycles by bridge")
 summarise(byBridgeDate, sum(Count)) %>% group_by(.,Bridge) %>% summarise(.,max(`sum(Count)`))
 
 # average monthly counts
-#summarise(byBridgeMonth, sum(Count)/n_distinct(date))
+summarise(byBridgeMonth, sum(Count)/n_distinct(date))
 
 # average yearly Counts
-#summarise(byBridgeYear, sum(Count)/n_distinct(date))
+summarise(byBridgeYear, sum(Count)/n_distinct(date))
 
 # monthly aggregates
-#(tmp <- summarise(byBridgeYearMonth, sum(Count)))
+(tmp <- summarise(byBridgeYearMonth, sum(Count)))
 #summarise(byBridgeMonth, sum(Count)/n_distinct(date))
 
 #plot(tmp)
